@@ -1,12 +1,12 @@
-package it.carlo.skydevtest
+package it.carlo.skydevtest.view
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import it.carlo.skydevtest.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
     }
 }
