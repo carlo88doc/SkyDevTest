@@ -1,6 +1,10 @@
 <resources>
-    <string name="app_name">SkyDevTest</string>
+    <string name="app_name">Sky Italia Developer Test</string>
     <string name="menu_home">Home</string>
     <string name="menu_photos">Photos</string>
     <string name="menu_settings">Settings</string>
+
+    <string name="home_info_photos">Tap on Photos to show the photo gallery</string>
+    <string name="home_info_settings">Tap on Settings to customize the app</string>
+
 </resources>

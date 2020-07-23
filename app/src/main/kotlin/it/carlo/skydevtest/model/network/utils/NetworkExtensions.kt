@@ -42,7 +42,7 @@ fun OkHttpClient.Builder.trustAllCertificates():OkHttpClient.Builder{
 
 
     this.sslSocketFactory(sslSocketFactory, trustAllCerts[0] as X509TrustManager)
-    this.hostnameVerifier { hostname, session -> true }
+    this.hostnameVerifier { _, _ -> true }
 
     return this
 }

@@ -1,19 +1,28 @@
 package it.carlo.skydevtest.view
 
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.Fragment
+import android.view.View
+import androidx.lifecycle.ViewModelProvider
 import it.carlo.skydevtest.R
+import it.carlo.skydevtest.viewmodel.MainViewModel
 import kotlinx.android.synthetic.main.activity_main.*
 
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity() {
+
+    lateinit var mainViewModel:MainViewModel
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        inflateBottomMenu()
         showFragment(HomeFragment.newInstance(), HomeFragment.TAG)
 
+        mainViewModel = ViewModelProvider(this).get(MainViewModel::class.java)
+    }
+
+    private fun inflateBottomMenu(){
         bottomNavigationView.setOnNavigationItemSelectedListener {menuItem ->
 
             var tag = ""
@@ -40,20 +49,17 @@ class MainActivity : AppCompatActivity() {
             }else{
                 false
             }
+
+
         }
     }
 
-
-    private fun showFragment(fragment:Fragment, tag:String){
-
-        val isTheSameFragment = supportFragmentManager?.findFragmentByTag(tag)?.tag?.equals(tag, false)!=null
-
-        if (isTheSameFragment){
-            supportFragmentManager.popBackStackImmediate()
-        }
-
-        supportFragmentManager.beginTransaction().replace(R.id.container, fragment, tag).addToBackStack(tag).commitAllowingStateLoss()
+    private fun showProgressBar(){
+        progressBar.visibility = View.VISIBLE
     }
 
+    private fun hideProgressBar(){
+        progressBar.visibility = View.GONE
+    }
 
 }
