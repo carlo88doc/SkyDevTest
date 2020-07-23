@@ -2,19 +2,92 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="10dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/photosTitleTextView"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/photosTextInputLayout"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/photosSearchImageButton"
+        app:layout_constraintBottom_toBottomOf="@id/photosSearchImageButton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:hint="@string/photos_search_hint"
+        app:hintTextColor="@color/orange_reddit"
+        app:boxStrokeColor="@color/orange_reddit"
+        app:helperTextTextColor="@color/orange_reddit"
+        android:textColorHint="@color/orange_reddit"
+        app:errorEnabled="false">
+
+        <EditText
+            android:id="@+id/photosSearchEditText"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:maxLines="1"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/photosSearchImageButton"
         android:padding="@dimen/home_body_padding"
-        android:background="@drawable/shape_rounded_left_orange"
+        app:backgroundTint="@color/orange_reddit"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        android:textColor="@color/white"
+        android:src="@drawable/ic_menu_image"
         android:text="@string/menu_photos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/photosPlaceholderView"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/photosTextInputLayout"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="0dp"
+        android:layout_height="0dp">
+
+        <ImageView
+            android:id="@+id/photosPlaceholderIcon"
+            app:layout_constraintBottom_toTopOf="@id/photosPlaceholderGuideline"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:src="@drawable/ic_search_off"
+            android:layout_width="40dp"
+            android:layout_height="40dp"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/photosPlaceholderGuideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.5"/>
+
+        <TextView
+            android:id="@+id/photosPlaceholderText"
+            app:layout_constraintTop_toBottomOf="@id/photosPlaceholderGuideline"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:textColor="@color/black"
+            android:textSize="@dimen/home_body_text_textSize"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/photosRecyclerView"
+        app:layout_constraintTop_toBottomOf="@id/photosTextInputLayout"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="0dp"
+        android:layout_height="0dp"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

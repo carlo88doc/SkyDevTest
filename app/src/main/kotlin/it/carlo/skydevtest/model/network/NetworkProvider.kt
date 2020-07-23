@@ -49,8 +49,8 @@ class NetworkProvider {
             .build()
             .create(ApiService::class.java)
 
-        fun getPhotos(): Single<RedditResponse> {
-            return api.getPhotos()
+        fun getPhotos(placeholder: String): Single<RedditResponse> {
+            return api.getPhotos(placeholder)
         }
 
     }

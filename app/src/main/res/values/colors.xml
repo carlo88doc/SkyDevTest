@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="colorPrimary">@color/orange_reddit</color>
+    <color name="colorPrimaryDark">@color/orange_reddit</color>
+    <color name="colorAccent">@color/orange_reddit</color>
+
+    <color name="splash_bg">#F1D637</color>
     <color name="orange_reddit">#FF4500</color>
+    <color name="orange_reddit_15">#26FF4500</color>
     <color name="white">#FFFFFF</color>
     <color name="black">#000000</color>
+    <color name="red">#F7412D</color>
 </resources>

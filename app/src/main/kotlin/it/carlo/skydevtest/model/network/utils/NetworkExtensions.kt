@@ -3,9 +3,7 @@ package it.carlo.skydevtest.model.network.utils
 import android.content.Context
 import it.carlo.skydevtest.BuildConfig
 import it.carlo.skydevtest.utils.DeviceConnection
-import okhttp3.Cache
-import okhttp3.CacheControl
-import okhttp3.OkHttpClient
+import okhttp3.*
 import okhttp3.logging.HttpLoggingInterceptor
 import java.security.SecureRandom
 import java.security.cert.CertificateException
@@ -17,6 +15,8 @@ import javax.net.ssl.X509TrustManager
 
 private const val HEADER_CACHE_CONTROL = "Cache-Control"
 private const val HEADER_PRAGMA = "Pragma"
+
+class NetworkException(val statusCode:Int):Exception()
 
 fun OkHttpClient.Builder.trustAllCertificates():OkHttpClient.Builder{
 
@@ -84,6 +84,10 @@ fun OkHttpClient.Builder.addCacheInterceptor(applicationContext:Context, maxStal
     this.addNetworkInterceptor {chain ->
 
         val response = chain.proceed(chain.request())
+
+
+
+
         val cacheControl = if (DeviceConnection.isConnected){
             CacheControl.Builder().maxStale(0, TimeUnit.SECONDS).build()
         }else{
@@ -96,6 +100,7 @@ fun OkHttpClient.Builder.addCacheInterceptor(applicationContext:Context, maxStal
             .header(HEADER_CACHE_CONTROL, cacheControl.toString())
             .build()
     }
+
 
     return this
 }

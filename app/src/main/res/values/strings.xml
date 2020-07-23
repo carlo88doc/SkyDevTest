@@ -7,4 +7,10 @@
     <string name="home_info_photos">Tap on Photos to show the photo gallery</string>
     <string name="home_info_settings">Tap on Settings to customize the app</string>
 
+    <string name="photos_search_hint">Type your search keyword here</string>
+
+    <string name="photos_loading_error">Unable to load the request resource</string>
+    <string name="photos_loading_error_private">The requested resource is private</string>
+    <string name="photos_loading_error_empty">There\'s no resources</string>
+
 </resources>

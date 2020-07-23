@@ -2,6 +2,7 @@ package it.carlo.skydevtest.view
 
 import android.os.Bundle
 import android.view.View
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import it.carlo.skydevtest.R
 import it.carlo.skydevtest.viewmodel.MainViewModel
@@ -10,19 +11,30 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : BaseActivity() {
 
-    lateinit var mainViewModel:MainViewModel
+    private lateinit var mainViewModel:MainViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        inflateBottomMenu()
-        showFragment(HomeFragment.newInstance(), HomeFragment.TAG)
+        if (savedInstanceState==null){
+            showFragment(HomeFragment.newInstance(), HomeFragment.TAG)
+        }
 
         mainViewModel = ViewModelProvider(this).get(MainViewModel::class.java)
+
+        mainViewModel.progressLiveData.observe(this, Observer {showEvent ->
+
+            showEvent.getContentIfNotHandled()?.let {show ->
+                progressBarLayout.visibility = if (show) View.VISIBLE else View.GONE
+            }
+
+        })
+
+        addBottomMenuListener()
     }
 
-    private fun inflateBottomMenu(){
+    private fun addBottomMenuListener(){
         bottomNavigationView.setOnNavigationItemSelectedListener {menuItem ->
 
             var tag = ""
@@ -52,14 +64,6 @@ class MainActivity : BaseActivity() {
 
 
         }
-    }
-
-    private fun showProgressBar(){
-        progressBar.visibility = View.VISIBLE
-    }
-
-    private fun hideProgressBar(){
-        progressBar.visibility = View.GONE
     }
 
 }
