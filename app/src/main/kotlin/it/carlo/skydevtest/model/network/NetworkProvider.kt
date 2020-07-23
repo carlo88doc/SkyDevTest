@@ -25,7 +25,7 @@ class NetworkProvider {
         private const val CACHE_SIZE_MB = 10L
         private const val CACHE_VALIDITY_DAYS = 7
 
-        private val httpClient:OkHttpClient
+        val httpClient:OkHttpClient
 
         init {
 

@@ -5,11 +5,13 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.GridLayoutManager
 import it.carlo.skydevtest.R
 import it.carlo.skydevtest.model.data.RedditPhotoModelView
 import it.carlo.skydevtest.utils.ERROR_RESOURCE_EMPTY
 import it.carlo.skydevtest.utils.getStringResourceFromErrorCode
 import it.carlo.skydevtest.utils.getTypedText
+import it.carlo.skydevtest.view.adapter.PhotoRecyclerAdapter
 import it.carlo.skydevtest.viewmodel.MainViewModel
 import it.carlo.skydevtest.viewmodel.PhotosViewModel
 import kotlinx.android.synthetic.main.fragment_photos.*
@@ -71,6 +73,10 @@ class PhotosFragment: Fragment(R.layout.fragment_photos) {
         }else{
             photosPlaceholderView.visibility = View.GONE
             photosRecyclerView.visibility = View.VISIBLE
+            photosRecyclerView.layoutManager = GridLayoutManager(requireContext(), 2)
+            photosRecyclerView.adapter = PhotoRecyclerAdapter(data) { itemClicked ->
+
+            }
         }
     }
 }
