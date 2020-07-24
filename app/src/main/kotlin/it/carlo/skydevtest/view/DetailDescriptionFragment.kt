@@ -5,7 +5,9 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import it.carlo.skydevtest.R
 import it.carlo.skydevtest.model.data.RedditPhotoModelView
+import it.carlo.skydevtest.utils.FORMAT_DATE_FULL
 import it.carlo.skydevtest.utils.setHtmlText
+import it.carlo.skydevtest.utils.toDateString
 import kotlinx.android.synthetic.main.fragment_detail_description.*
 
 class DetailDescriptionFragment: Fragment(R.layout.fragment_detail_description) {
@@ -30,7 +32,12 @@ class DetailDescriptionFragment: Fragment(R.layout.fragment_detail_description) 
 
         item?.let {
             detailPhotoDescriptionTitleText.setHtmlText(it.title)
-            detailPhotoDescriptionext.setHtmlText(it.description)
+            detailPhotoAuthorText.text = it.author
+            detailPhotoDateText.text = it.timestampCreated?.toDateString(FORMAT_DATE_FULL)
+            detailPhotoDescriptionText.setHtmlText(if (it.description?.isNotEmpty()==true){
+                it.description
+            }else getString(R.string.description_placeholder))
+
         }
 
     }

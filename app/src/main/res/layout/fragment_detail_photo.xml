@@ -42,6 +42,7 @@
 
         <ImageView
             android:id="@+id/detailPhotoCommentsImageView"
+            android:layout_marginTop="@dimen/photo_detail_description_padding"
             app:layout_constraintTop_toBottomOf="@id/detailPhotoLikeImageView"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toLeftOf="@id/detailPhotoLikeTextView"

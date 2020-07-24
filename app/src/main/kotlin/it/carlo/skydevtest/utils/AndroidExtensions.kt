@@ -1,32 +1,17 @@
 package it.carlo.skydevtest.utils
 
 import android.os.Build
-import android.text.Editable
 import android.text.Html
-import android.text.TextWatcher
 import android.util.Log
 import android.widget.EditText
 import android.widget.TextView
 import it.carlo.skydevtest.BuildConfig
+import java.text.SimpleDateFormat
+import java.util.*
 
 private const val TAG_LOG = "SkyDevTestLogging"
 
-inline fun <T : EditText> T.afterTextChanged(crossinline f: T.(s: Editable?) -> Unit) {
-    this.addTextChangedListener(object : TextWatcher {
-        override fun afterTextChanged(s: Editable?) {
-            f(s)
-        }
-
-        override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-            //do nothing
-        }
-
-        override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-            //do nothing
-        }
-
-    })
-}
+const val FORMAT_DATE_FULL = "dd/MM/yyyy HH:mm"
 
 @Suppress( "deprecation" ) //managed the deprecation behalf current SDK
 fun TextView.setHtmlText(text:String?){
@@ -51,6 +36,14 @@ fun Throwable.logError(){
 fun log(message:String?){
     if (BuildConfig.DEBUG && message?.isNotEmpty()==true){
         Log.d(TAG_LOG, message)
+    }
+}
+
+fun Long?.toDateString(dateFormat: String): String {
+    return if (this==null){
+        ""
+    }else{
+        SimpleDateFormat(dateFormat).format(Date(this))
     }
 }
 
