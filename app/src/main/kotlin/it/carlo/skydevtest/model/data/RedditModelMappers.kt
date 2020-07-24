@@ -20,15 +20,25 @@ fun mapRedditResponseToRedditPhotoModelViews(blockAdultContents:Boolean) = Funct
                 modelView.author = photoResponse.author
                 modelView.title = photoResponse.title
                 modelView.voteRatio = photoResponse.voteRatio
-                modelView.thumbnailUrl = photoResponse.thumbnailUrl
-                modelView.fullImageUrl = photoResponse.fullImageUrl
-                modelView.alternativeImageUrl = photoResponse.alternativeImageUrl
                 modelView.hint = photoResponse.hint
                 modelView.timestampCreated = photoResponse.timestampCreated
                 modelView.isOver18 = photoResponse.isOver18
                 modelView.numComments = photoResponse.numComments
                 modelView.permalink = photoResponse.permalink
                 modelView.subredditSubscribers = photoResponse.subredditSubscribers
+                modelView.fullImageUrl = photoResponse.fullImageUrl
+                modelView.alternativeImageUrl = photoResponse.alternativeImageUrl
+
+                modelView.thumbnailUrl = if (photoResponse.thumbnailUrl?.isNotEmpty()==true){
+                    photoResponse.thumbnailUrl
+                }else{
+                    if (modelView.fullImageUrl?.isNotEmpty()==true){
+                        photoResponse.fullImageUrl
+                    }else{
+                        photoResponse.alternativeImageUrl
+                    }
+                }
+
                 this.add(modelView)
             }
         }

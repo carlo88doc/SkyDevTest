@@ -2,7 +2,11 @@
 <resources>
     <dimen name="home_body_padding">20dp</dimen>
     <dimen name="home_body_text_textSize">20dp</dimen>
+    <dimen name="photo_recyclerview_paddingTop">10dp</dimen>
     <dimen name="photo_image_margin">5dp</dimen>
     <dimen name="photo_image_height">150dp</dimen>
     <dimen name="photo_image_width">150dp</dimen>
+    <dimen name="photo_image_title_textSize">10dp</dimen>
+    <dimen name="photo_image_author_textSize">10dp</dimen>
+
 </resources>

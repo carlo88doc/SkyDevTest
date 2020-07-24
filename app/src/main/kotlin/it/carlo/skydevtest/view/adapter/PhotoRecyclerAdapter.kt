@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import it.carlo.skydevtest.R
 import it.carlo.skydevtest.model.data.RedditPhotoModelView
 import it.carlo.skydevtest.utils.ImageCache
+import it.carlo.skydevtest.utils.setHtmlText
 
 class PhotoRecyclerAdapter(private val items:ArrayList<RedditPhotoModelView>, private val onPhotoItemClick: (RedditPhotoModelView) -> Unit?): RecyclerView.Adapter<PhotoRecyclerAdapter.PhotoViewHolder>() {
 
@@ -32,7 +33,7 @@ class PhotoRecyclerAdapter(private val items:ArrayList<RedditPhotoModelView>, pr
 
         fun bind(item: RedditPhotoModelView, listener: (RedditPhotoModelView) -> Unit?) {
             ImageCache.loadImage(itemPhotoImageView, item.thumbnailUrl, R.drawable.item_photo_placeholder)
-            itemPhotoTitleTextView.text = item.title
+            itemPhotoTitleTextView.setHtmlText(item.title)
             itemPhotoAuthorTextView.text = item.author
 
             itemView.setOnClickListener { listener.invoke(item) }

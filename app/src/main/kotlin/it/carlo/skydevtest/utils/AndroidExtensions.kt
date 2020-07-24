@@ -1,9 +1,12 @@
 package it.carlo.skydevtest.utils
 
+import android.os.Build
 import android.text.Editable
+import android.text.Html
 import android.text.TextWatcher
 import android.util.Log
 import android.widget.EditText
+import android.widget.TextView
 import it.carlo.skydevtest.BuildConfig
 
 private const val TAG_LOG = "SkyDevTestLogging"
@@ -23,6 +26,15 @@ inline fun <T : EditText> T.afterTextChanged(crossinline f: T.(s: Editable?) -> 
         }
 
     })
+}
+
+@Suppress( "deprecation" ) //managed the deprecation behalf current SDK
+inline fun TextView.setHtmlText(text:String?){
+    this.text = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+        Html.fromHtml(text ?: "", Html.FROM_HTML_MODE_LEGACY)
+    }else{
+        Html.fromHtml(text ?: "")
+    }
 }
 
 inline fun EditText.getTypedText():String{

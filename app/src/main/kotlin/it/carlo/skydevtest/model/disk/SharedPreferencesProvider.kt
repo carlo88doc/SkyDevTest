@@ -17,8 +17,7 @@ class SharedPreferencesProvider {
 
         private fun getBoolean(key:String, defaultValue:Boolean):Single<Boolean>{
             return Single.create {
-                preferences.getBoolean(key, defaultValue)
-                it.onSuccess(true)
+                it.onSuccess(preferences.getBoolean(key, defaultValue))
             }
         }
 
@@ -31,8 +30,7 @@ class SharedPreferencesProvider {
 
         private fun getString(key:String, defaultValue:String):Single<String>{
             return Single.create<String> {
-                val result = preferences.getString(key, defaultValue) ?: defaultValue
-                it.onSuccess(result)
+                it.onSuccess(preferences.getString(key, defaultValue) ?: defaultValue)
             }
         }
 

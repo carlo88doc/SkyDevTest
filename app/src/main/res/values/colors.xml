@@ -9,7 +9,10 @@
     <color name="orange_reddit_15">#26FF4500</color>
     <color name="white">#FFFFFF</color>
     <color name="black">#000000</color>
+    <color name="black_10">#80000000</color>
     <color name="red">#F7412D</color>
-    <color name="grey">#E7E7E7</color>
+    <color name="lightgrey">#E7E7E7</color>
+    <color name="grey">#80868B</color>
+
 
 </resources>

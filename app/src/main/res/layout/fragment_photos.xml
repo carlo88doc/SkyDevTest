@@ -82,10 +82,13 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/photosRecyclerView"
+        android:paddingTop="@dimen/photo_recyclerview_paddingTop"
         app:layout_constraintTop_toBottomOf="@id/photosTextInputLayout"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
+        android:scrollbars="vertical"
+        android:scrollbarThumbVertical="@drawable/shape_rounded_left_primary"
         android:layout_width="0dp"
         android:layout_height="0dp"/>
 
