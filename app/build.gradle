@@ -41,9 +41,13 @@ dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 
-
+    //Test libraries
+    androidTestImplementation "androidx.test.espresso:espresso-core:${espresso_version}"
+    androidTestImplementation "androidx.test.espresso:espresso-contrib:${espresso_version}"
+    androidTestImplementation "androidx.test:runner:${androidx_runner}"
+    androidTestImplementation "androidx.test:rules:${androidx_runner}"
+    
     //AndroidX and material libraries
-
     implementation "androidx.core:core-ktx:$ktx_version"
     implementation "androidx.appcompat:appcompat:$androidx_appcompat_version"
     implementation "androidx.constraintlayout:constraintlayout:$androidx_constraintlayout_version"
@@ -56,7 +60,6 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$arch_lifecycle_version"
 
     implementation "com.google.android.material:material:$material_version"
-
 
     //Network and Utils libraries
     implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
@@ -71,10 +74,5 @@ dependencies {
     implementation "com.squareup.okhttp3:logging-interceptor:$okhttp_version"
     implementation "com.squareup.okhttp3:okhttp-urlconnection:$okhttp_version"
     implementation "com.squareup.picasso:picasso:$picasso_version"
-
-    //Test libraries
-    testImplementation "junit:junit:$junit_version"
-    androidTestImplementation "androidx.arch.core:core-testing:$core_testing_version"
-
 
 }
