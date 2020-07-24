@@ -20,6 +20,8 @@
         android:id="@+id/switchSettingsOver18"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="@dimen/settings_over18_margin"
+        android:textSize="@dimen/settings_over18_textSize"
         android:text="@string/settings_over18"
         app:layout_constraintTop_toBottomOf="@id/settingsTitleTextView"
         app:layout_constraintLeft_toLeftOf="parent"

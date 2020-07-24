@@ -13,6 +13,6 @@
     <string name="photos_loading_error_private">The requested resource is private</string>
     <string name="photos_loading_error_empty">There\'s no resources</string>
 
-    <string name="settings_over18">Block adult contents</string>
+    <string name="settings_over18">Block adults contents</string>
 
 </resources>

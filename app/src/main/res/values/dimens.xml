@@ -8,5 +8,7 @@
     <dimen name="photo_image_width">150dp</dimen>
     <dimen name="photo_image_title_textSize">10dp</dimen>
     <dimen name="photo_image_author_textSize">10dp</dimen>
+    <dimen name="settings_over18_margin">20dp</dimen>
+    <dimen name="settings_over18_textSize">20dp</dimen>
 
 </resources>
