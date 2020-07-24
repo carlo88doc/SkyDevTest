@@ -1,9 +1,21 @@
 <resources>
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="colorPrimary">@color/orange_reddit</item>
         <item name="fontFamily">sans-serif</item>
     </style>
+
+    <style name="Theme.SkyDevTest.Light" parent="AppTheme">
+        <item name="colorPrimary">@color/orange_reddit</item>
+        <item name="colorPrimaryDark">@color/orange_reddit</item>
+        <item name="colorAccent">@color/orange_reddit</item>
+    </style>
+
+<!--    <style name="Theme.SkyDevTest.Dark" parent="AppTheme">-->
+<!--        <item name="colorPrimary">@color/black</item>-->
+<!--        <item name="colorPrimaryDark">@color/black</item>-->
+<!--        <item name="colorAccent">@color/black</item>-->
+<!--        <item name="backgroundColor">@color/black</item>-->
+<!--    </style>-->
 
 
 </resources>

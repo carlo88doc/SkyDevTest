@@ -3,13 +3,19 @@ package it.carlo.skydevtest.model.data
 import io.reactivex.functions.Function
 
 
-fun mapRedditResponseToRedditPhotoModelViews() = Function<RedditResponse, ArrayList<RedditPhotoModelView>> { resp ->
+fun mapRedditResponseToRedditPhotoModelViews(blockAdultContents:Boolean) = Function<RedditResponse, ArrayList<RedditPhotoModelView>> { resp ->
 
     return@Function arrayListOf<RedditPhotoModelView>().apply {
-        resp.data?.children?.forEach{
+
+        val filteredChildren = resp.data?.children?.filter {
+            if (blockAdultContents){
+                it.data?.isOver18 == false
+            }else true
+        }
+
+        filteredChildren?.forEach{
             it.data?.let {photoResponse ->
                 var modelView = RedditPhotoModelView()
-                modelView.alternativeImageUrl = photoResponse.alternativeImageUrl
                 modelView.id = photoResponse.id
                 modelView.author = photoResponse.author
                 modelView.title = photoResponse.title

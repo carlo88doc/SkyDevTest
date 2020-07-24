@@ -16,7 +16,7 @@
     <TextView
         android:id="@+id/titleTextView"
         android:padding="@dimen/home_body_padding"
-        android:background="@drawable/shape_rounded_left_orange"
+        android:background="@drawable/shape_rounded_left_primary"
         app:layout_constraintTop_toBottomOf="@id/homeRedditImageView"
         app:layout_constraintRight_toRightOf="parent"
         android:textColor="@color/white"

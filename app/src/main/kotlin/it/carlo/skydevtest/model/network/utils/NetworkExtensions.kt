@@ -77,6 +77,7 @@ fun OkHttpClient.Builder.addCacheInterceptor(applicationContext:Context, maxStal
                 .build()
         }
 
+
         chain.proceed(request)
     }
 
