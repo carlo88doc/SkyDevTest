@@ -10,5 +10,12 @@
     <dimen name="photo_image_author_textSize">10dp</dimen>
     <dimen name="settings_over18_margin">20dp</dimen>
     <dimen name="settings_over18_textSize">20dp</dimen>
-
+    <dimen name="photo_detail_comment_icon_size">20dp</dimen>
+    <dimen name="photo_detail_comment_textSize">20dp</dimen>
+    <dimen name="photo_detail_ratio_icon_size">20dp</dimen>
+    <dimen name="photo_detail_ratio_textSize">20dp</dimen>
+    <dimen name="photo_detail_title_padding">20dp</dimen>
+    <dimen name="photo_detail_title_textSize">30dp</dimen>
+    <dimen name="photo_detail_description_padding">10dp</dimen>
+    <dimen name="photo_detail_description_textSize">15dp</dimen>
 </resources>

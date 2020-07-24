@@ -1,6 +1,7 @@
 package it.carlo.skydevtest.model.data
 
 import io.reactivex.functions.Function
+import it.carlo.skydevtest.BuildConfig
 
 
 fun mapRedditResponseToRedditPhotoModelViews(blockAdultContents:Boolean) = Function<RedditResponse, ArrayList<RedditPhotoModelView>> { resp ->
@@ -24,7 +25,7 @@ fun mapRedditResponseToRedditPhotoModelViews(blockAdultContents:Boolean) = Funct
                 modelView.timestampCreated = photoResponse.timestampCreated
                 modelView.isOver18 = photoResponse.isOver18
                 modelView.numComments = photoResponse.numComments
-                modelView.permalink = photoResponse.permalink
+                modelView.permalink = "${BuildConfig.BASE_URL}${photoResponse.permalink}"
                 modelView.subredditSubscribers = photoResponse.subredditSubscribers
                 modelView.fullImageUrl = photoResponse.fullImageUrl
                 modelView.alternativeImageUrl = photoResponse.alternativeImageUrl
@@ -37,6 +38,12 @@ fun mapRedditResponseToRedditPhotoModelViews(blockAdultContents:Boolean) = Funct
                     }else{
                         photoResponse.alternativeImageUrl
                     }
+                }
+
+                modelView.description = if (photoResponse.selfText?.isNotEmpty()==true){
+                    photoResponse.selfText
+                }else{
+                    photoResponse.selfTextHtml
                 }
 
                 this.add(modelView)

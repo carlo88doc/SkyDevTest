@@ -2,6 +2,7 @@ package it.carlo.skydevtest.view
 
 import android.os.Bundle
 import android.view.View
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -73,9 +74,9 @@ class PhotosFragment: Fragment(R.layout.fragment_photos) {
         }else{
             photosPlaceholderView.visibility = View.GONE
             photosRecyclerView.visibility = View.VISIBLE
-            photosRecyclerView.layoutManager = GridLayoutManager(requireContext(), 2)
-            photosRecyclerView.adapter = PhotoRecyclerAdapter(data) { itemClicked ->
-
+            photosRecyclerView.layoutManager = GridLayoutManager(requireContext(), resources.getInteger(R.integer.gallery_columns))
+            photosRecyclerView.adapter = PhotoRecyclerAdapter(data) { item ->
+                DetailActivity.start(requireContext(), item)
             }
         }
     }

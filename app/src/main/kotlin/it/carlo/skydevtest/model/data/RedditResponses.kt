@@ -32,6 +32,10 @@ data class RedditPhotoResponse(
     val author:String? = null,
     @Json(name= "title")
     val title:String? = null,
+    @Json(name= "selfText")
+    val selfText:String? = null,
+    @Json(name= "selftext_html")
+    val selfTextHtml:String? = null,
     @Json(name= "upvote_ratio")
     val voteRatio:Double? = null,
     @Json(name= "thumbnail")

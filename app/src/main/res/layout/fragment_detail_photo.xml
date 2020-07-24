@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/detailPhotoImageView"
+        android:scaleType="centerCrop"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:padding="@dimen/photo_detail_description_padding"
+        android:background="@color/colorAccent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/detailPhotoLikeImageView"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/detailPhotoLikeTextView"
+            android:src="@drawable/ic_like"
+            android:layout_width="@dimen/photo_detail_ratio_icon_size"
+            android:layout_height="@dimen/photo_detail_ratio_icon_size"/>
+
+        <TextView
+            android:id="@+id/detailPhotoLikeTextView"
+            android:paddingLeft="@dimen/photo_detail_description_padding"
+            app:layout_constraintTop_toTopOf="@id/detailPhotoLikeImageView"
+            app:layout_constraintBottom_toBottomOf="@id/detailPhotoLikeImageView"
+            app:layout_constraintRight_toRightOf="parent"
+            android:textColor="@color/white"
+            android:src="@drawable/ic_like"
+            android:textSize="@dimen/photo_detail_ratio_textSize"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <ImageView
+            android:id="@+id/detailPhotoCommentsImageView"
+            app:layout_constraintTop_toBottomOf="@id/detailPhotoLikeImageView"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/detailPhotoLikeTextView"
+            android:src="@drawable/ic_comment"
+            android:layout_width="@dimen/photo_detail_comment_icon_size"
+            android:layout_height="@dimen/photo_detail_comment_icon_size"/>
+
+        <TextView
+            android:id="@+id/detailPhotoCommentsTextView"
+            android:paddingLeft="@dimen/photo_detail_description_padding"
+            app:layout_constraintTop_toTopOf="@id/detailPhotoCommentsImageView"
+            app:layout_constraintBottom_toBottomOf="@id/detailPhotoCommentsImageView"
+            app:layout_constraintRight_toRightOf="parent"
+            android:textSize="@dimen/photo_detail_comment_textSize"
+            android:textColor="@color/white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/detailPhotoTitleTextView"
+        android:background="@color/black_10"
+        android:padding="@dimen/photo_detail_title_padding"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:textSize="@dimen/photo_detail_title_textSize"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

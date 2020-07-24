@@ -29,7 +29,7 @@ inline fun <T : EditText> T.afterTextChanged(crossinline f: T.(s: Editable?) -> 
 }
 
 @Suppress( "deprecation" ) //managed the deprecation behalf current SDK
-inline fun TextView.setHtmlText(text:String?){
+fun TextView.setHtmlText(text:String?){
     this.text = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
         Html.fromHtml(text ?: "", Html.FROM_HTML_MODE_LEGACY)
     }else{
@@ -37,14 +37,14 @@ inline fun TextView.setHtmlText(text:String?){
     }
 }
 
-inline fun EditText.getTypedText():String{
+fun EditText.getTypedText():String{
     return this.text.toString()
 }
 
 
 fun Throwable.logError(){
     if (BuildConfig.DEBUG){
-        Log.e(TAG_LOG, this?.message, this)
+        Log.e(TAG_LOG, this.message, this)
     }
 }
 
