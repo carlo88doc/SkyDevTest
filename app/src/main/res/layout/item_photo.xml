@@ -4,20 +4,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_margin="@dimen/photo_image_margin"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_margin="@dimen/photo_image_margin"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <ImageView
             android:id="@+id/itemPhotoImage"
-            android:layout_width="@dimen/photo_image_width"
+            android:layout_width="match_parent"
             android:layout_height="@dimen/photo_image_height"
-            android:scaleType="centerCrop"
+            android:scaleType="fitCenter"
             tools:src="@drawable/ic_search_off"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent"/>

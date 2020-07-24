@@ -13,6 +13,7 @@
         app:layout_constraintRight_toRightOf="parent"
         android:textColor="@color/white"
         android:text="@string/menu_settings"
+        android:textSize="@dimen/settings_over18_textSize"
         android:layout_width="0dp"
         android:layout_height="wrap_content"/>
 

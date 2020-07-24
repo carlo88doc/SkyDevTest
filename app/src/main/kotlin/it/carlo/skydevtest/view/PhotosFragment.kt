@@ -2,7 +2,7 @@ package it.carlo.skydevtest.view
 
 import android.os.Bundle
 import android.view.View
-import androidx.core.content.ContextCompat
+import android.view.inputmethod.EditorInfo
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -50,12 +50,23 @@ class PhotosFragment: Fragment(R.layout.fragment_photos) {
         })
 
         photosSearchImageButton.setOnClickListener {
-            val query = photosSearchEditText.getTypedText()
-            if (query.isEmpty()){
-                showPlaceholderView(R.drawable.ic_search_off, getStringResourceFromErrorCode(ERROR_RESOURCE_EMPTY))
-            }else{
-                viewModel.searchRedditPhotos(activityViewModel.progressLiveData, photosSearchEditText.getTypedText())
-            }
+            performSearch()
+        }
+
+        photosSearchEditText.setOnEditorActionListener { _, id, _ ->
+            if (id==EditorInfo.IME_ACTION_DONE){
+                performSearch()
+                true
+            }else false
+        }
+    }
+
+    private fun performSearch(){
+        val query = photosSearchEditText.getTypedText()
+        if (query.isEmpty()){
+            showPlaceholderView(R.drawable.ic_search_off, getStringResourceFromErrorCode(ERROR_RESOURCE_EMPTY))
+        }else{
+            viewModel.searchRedditPhotos(activityViewModel.progressLiveData, photosSearchEditText.getTypedText())
         }
     }
 

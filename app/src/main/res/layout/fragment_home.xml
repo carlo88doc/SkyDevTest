@@ -8,7 +8,8 @@
     <ImageView
         android:id="@+id/homeRedditImageView"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/banner_height"
+        android:scaleType="fitStart"
         android:src="@drawable/ic_reddit"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
@@ -20,25 +21,18 @@
         app:layout_constraintTop_toBottomOf="@id/homeRedditImageView"
         app:layout_constraintRight_toRightOf="parent"
         android:textColor="@color/white"
+        android:textSize="@dimen/right_label_textSize"
         android:text="@string/app_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.5"/>
-
     <TextView
         android:id="@+id/homeInfoTextView"
         android:padding="@dimen/home_body_padding"
-        app:layout_constraintBottom_toTopOf="@id/guideline"
+        app:layout_constraintTop_toBottomOf="@id/titleTextView"
         app:layout_constraintLeft_toLeftOf="parent"
         android:drawablePadding="@dimen/home_body_padding"
-        android:drawableLeft="@drawable/ic_menu_image"
-        android:drawableTint="@color/orange_reddit"
+        android:drawableStart="@drawable/ic_menu_image"
         android:textColor="@color/black"
         android:text="@string/home_info_photos"
         android:textSize="@dimen/home_body_text_textSize"
@@ -49,10 +43,9 @@
         android:id="@+id/settingsInfoTextView"
         android:padding="@dimen/home_body_padding"
         android:drawablePadding="@dimen/home_body_padding"
-        app:layout_constraintTop_toBottomOf="@id/guideline"
+        app:layout_constraintTop_toBottomOf="@id/homeInfoTextView"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:drawableLeft="@drawable/ic_menu_settings"
-        android:drawableTint="@color/orange_reddit"
+        android:drawableStart="@drawable/ic_menu_settings"
         android:textColor="@color/black"
         android:textSize="@dimen/home_body_text_textSize"
         android:text="@string/home_info_settings"
